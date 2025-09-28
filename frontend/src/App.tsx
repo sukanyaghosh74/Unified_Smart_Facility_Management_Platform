@@ -1,16 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 const TABS = ['Access', 'Climate', 'IT Infra'];
 
 export default function App() {
   const [tab, setTab] = useState('Access');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(!!localStorage.getItem('token'));
+  }, []);
+
+  if (!loggedIn) {
+    return showRegister ? (
+      <Register onRegister={() => setShowRegister(false)} />
+    ) : (
+      <>
+        <Login onLogin={() => setLoggedIn(true)} />
+        <div className="flex justify-center mt-2">
+          <button className="text-blue-600 underline" onClick={() => setShowRegister(true)}>
+            Register new account
+          </button>
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="p-4 bg-white shadow flex justify-between items-center">
         <h1 className="text-xl font-bold">USFMP Dashboard</h1>
         <div>
-          {/* Placeholder for user/admin menu */}
+          <button className="text-sm text-gray-500" onClick={() => { localStorage.removeItem('token'); setLoggedIn(false); }}>Logout</button>
         </div>
       </header>
       <nav className="flex space-x-4 p-4 bg-gray-100">
