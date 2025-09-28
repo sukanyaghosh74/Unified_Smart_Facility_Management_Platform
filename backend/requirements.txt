@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+asyncpg
+psycopg2-binary
+pydantic
+python-jose[cryptography]
+passlib[bcrypt]
+paho-mqtt
+python-multipart
+jinja2
+reportlab
+scikit-learn
+matplotlib

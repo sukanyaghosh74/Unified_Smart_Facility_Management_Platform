@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: timescale/timescaledb:latest-pg14
+    environment:
+      POSTGRES_USER: usfmp
+      POSTGRES_PASSWORD: usfmp_pass
+      POSTGRES_DB: usfmp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://usfmp:usfmp_pass@db:5432/usfmp_db
+      JWT_SECRET_KEY: supersecretkey
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+volumes:
+  db_data:
