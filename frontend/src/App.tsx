@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AccessDashboard from './components/AccessDashboard';
+import ClimateDashboard from './components/ClimateDashboard';
+import ITInfraDashboard from './components/ITInfraDashboard';
 
 const TABS = ['Access', 'Climate', 'IT Infra'];
 
@@ -48,9 +51,9 @@ export default function App() {
         ))}
       </nav>
       <main className="p-4">
-        {tab === 'Access' && <div>Access Control Module (Smart V-Pass)</div>}
-        {tab === 'Climate' && <div>Climate Monitoring Module (Smart Airsenz)</div>}
-        {tab === 'IT Infra' && <div>IT Infra Monitoring Module (IT Managed Services)</div>}
+        {tab === 'Access' && <AccessDashboard />}
+        {tab === 'Climate' && <ClimateDashboard />}
+        {tab === 'IT Infra' && <ITInfraDashboard />}
       </main>
     </div>
   );
