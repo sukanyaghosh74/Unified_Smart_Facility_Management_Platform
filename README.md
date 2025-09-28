@@ -1,9 +1,5 @@
 # Unified Smart Facility Management Platform (USFMP)
 
-> **Extensive README** — a developer-focused, step-by-step guide to run, develop, and extend the USFMP project. This README includes architecture, setup instructions, code snippets, API examples, seeding/demo scripts, and pointers for deployment and testing.
-
----
-
 ## Table of contents
 
 1. [Project overview](#project-overview)
