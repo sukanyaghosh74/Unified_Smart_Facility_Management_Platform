@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ClimateChart from './ClimateChart';
 
 export default function ClimateDashboard() {
   const [sensors, setSensors] = useState([
@@ -24,8 +25,8 @@ export default function ClimateDashboard() {
         ))}
       </div>
       <div className="bg-white p-4 rounded shadow">
-        <div className="text-gray-500 mb-2">Historical Data Charts (Coming Soon)</div>
-        <div className="h-32 flex items-center justify-center text-gray-400">[Charts Placeholder]</div>
+        <div className="text-gray-500 mb-2">Historical Data Charts</div>
+        <ClimateChart />
       </div>
     </div>
   );

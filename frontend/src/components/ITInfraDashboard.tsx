@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ITInfraChart from './ITInfraChart';
 
 export default function ITInfraDashboard() {
   const [servers, setServers] = useState([
@@ -27,8 +28,8 @@ export default function ITInfraDashboard() {
         ))}
       </div>
       <div className="bg-white p-4 rounded shadow">
-        <div className="text-gray-500 mb-2">Anomaly Detection Chart (Coming Soon)</div>
-        <div className="h-32 flex items-center justify-center text-gray-400">[Anomaly Chart Placeholder]</div>
+        <div className="text-gray-500 mb-2">Anomaly Detection Chart</div>
+        <ITInfraChart />
       </div>
     </div>
   );
