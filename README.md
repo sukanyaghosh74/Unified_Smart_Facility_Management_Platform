@@ -22,6 +22,21 @@ A production-ready platform integrating IoT sensor data, secure access control, 
 2. Run `docker-compose up --build`
 3. Access frontend at `http://localhost:3000`, backend at `http://localhost:8000`
 
+## Seed Data & Demo Scripts
+
+- **Seed the database:**
+  ```bash
+  docker-compose exec backend python /app/infra/seed_db.py
+  ```
+- **Run fake IoT data generator:**
+  ```bash
+  docker-compose exec backend python /app/infra/fake_iot_data.py
+  ```
+
+## Development
+- Backend: `cd backend && uvicorn main:app --reload`
+- Frontend: `cd frontend && yarn dev`
+
 ---
 
-**Detailed setup, module docs, and usage instructions coming soon.**
+**Detailed module docs and usage instructions coming soon.**
